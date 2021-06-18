@@ -3,7 +3,7 @@ const router = express.Router();
 
 const mysqlConnection = require('../database.js');
 
-// GET
+// GET All
 router.get('/', (req, res) => {
     mysqlConnection.query('SELECT * FROM tasks', (err, rows, fields) => {
         if (!err) {

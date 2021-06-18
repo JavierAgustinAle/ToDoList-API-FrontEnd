@@ -7,6 +7,7 @@ app.use(express.json());
 
 // Routes
 app.use(require('./routes/tasks'));
+app.use(require('./routes/folders.js'));
 
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
