@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { TaskService } from '../app/services/task.service';
+import { ITask } from '../app/models/task.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontToDoList';
+
+  constructor() { }
+
 }
