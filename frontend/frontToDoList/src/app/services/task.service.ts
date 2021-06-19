@@ -15,6 +15,7 @@ export class TaskService {
   protected tasksAll = environment.URL;
   protected tasksSingle = environment.URL + '/{id}';
 
+  protected tasksByFolder = environment.URL + '/tasks/{folderID}';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -37,5 +38,10 @@ export class TaskService {
   }
 
 
+  getTaskByFolder(folderId: number): Observable<any> {
+    return this.httpClient.get(this.tasksByFolder.replace('{folderID}', folderId.toString()));
+  }
+
 
 }
+

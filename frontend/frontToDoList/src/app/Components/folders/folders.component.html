@@ -1,0 +1,38 @@
+<main *ngIf="!show">
+    <h1 class="text-center">Folders</h1>
+    <table class="table text-white">
+        <thead class="thead-light">
+            <tr class="text-center">
+                <th scope="col">Name</th>
+                <th scope="col">Items</th>
+                <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of foldersAll">
+                <td class="text-center">{{f.name}}</td>
+                <td class="text-center col-3">
+                    <button type="button" class="btn btn-xs btn-link" (click)="viewItems(f)">View
+                        items</button>
+                </td>
+                <td class="text-center col-3">
+                    <button type="button" class="btn btn-xs btn-link" (click)="deleteFolder(f)">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <hr>
+    <div class="col-md-6 col-sm-12 divForm">
+        <form>
+            <div class="input-group">
+                <input type="text" class="form-control" id="addFolder" placeholder="New Folder" required>
+                <button type="button" (click)="onSubmit()" class="btn btn-success">Add</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<div *ngIf="show">
+    <app-tasks [folder]="folderSelected"></app-tasks>
+</div>

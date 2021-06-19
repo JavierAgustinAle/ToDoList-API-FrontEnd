@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TaskService } from 'src/app/services/task.service';
 import { ITask } from '../../models/task.model';
@@ -9,6 +9,7 @@ import { ITask } from '../../models/task.model';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
+  @Input() folder = null;
   tasksAll: ITask[];
   edit = false;
   editingTask: ITask;
@@ -20,9 +21,16 @@ export class TasksComponent implements OnInit {
   }
 
   loadTable() {
-    this.taskService.getAllTasks().subscribe((res: ITask[]) => {
-      this.tasksAll = res;
-    })
+    if (this.folder != null) {
+      this.taskService.getTaskByFolder(this.folder.id).subscribe((res: ITask[]) => {
+        this.tasksAll = res;
+      })
+    } else {
+      this.taskService.getAllTasks().subscribe((res: ITask[]) => {
+        this.tasksAll = res;
+      })
+    }
+
   }
 
 
@@ -45,7 +53,7 @@ export class TasksComponent implements OnInit {
         id: 0,
         description: (document.getElementById('addTask') as HTMLFormElement).value,
         completed: 0,
-        folderID: null
+        folderID: this.folder ? this.folder.id : null
       };
       this.taskService.putTask(obj).subscribe(_ => {
         this.openSnackBar('Task Added');

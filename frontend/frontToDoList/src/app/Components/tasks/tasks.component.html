@@ -1,4 +1,6 @@
 <main>
+    <h1 *ngIf="folder === null" class="text-center"> To Do List</h1>
+    <h1 *ngIf="folder != null" class="text-center">Folders > {{folder.name}}</h1>
     <table class="table text-white">
         <thead class="thead-light">
             <tr class="text-center">

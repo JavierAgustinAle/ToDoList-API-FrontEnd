@@ -26,6 +26,18 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// GET by FolderID
+router.get('/tasks/:folderid', (req, res) => {
+    const { folderid } = req.params;
+    mysqlConnection.query('SELECT * FROM tasks WHERE folderID = ?', [folderid], (err, rows, fields) => {
+        if (!err) {
+            res.json(rows);
+        } else {
+            console.log(err);
+        }
+    });
+});
+
 // DELETE Task
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
