@@ -11,24 +11,38 @@
         <tbody>
             <tr *ngFor="let t of tasksAll">
                 <td class="col-1 pr-2 text-center" *ngIf="t.completed === 0"><input type="checkbox" name="check"
-                        (click)="update(t)"></td>
+                        (click)="checkComplete(t)"></td>
                 <td class="col-1 pr-2 text-center" *ngIf="t.completed != 0"><input type="checkbox" name="check"
-                        (click)="update(t)" checked></td>
+                        (click)="checkComplete(t)" checked></td>
                 <td class="text-center">{{t.description}}</td>
                 <td class="text-center col-3">
-                    <button type="button" class="btn bnt-xs btn-warning">Edit</button> |
-                    <button type="button" class="btn bnt-xs btn-danger" (click)="delTask(t)">Delete</button>
+                    <button type="button" class="btn btn-xs btn-warning" (click)="editTask(t)">Edit</button> |
+                    <button type="button" class="btn btn-xs btn-danger" (click)="delTask(t)">Delete</button>
                 </td>
             </tr>
         </tbody>
     </table>
     <br>
     <hr>
-    <div class="col-md-6 col-sm-12 divForm">
+    <div class="col-md-6 col-sm-12 divForm" *ngIf="!edit">
         <form>
             <div class="input-group">
                 <input type="text" class="form-control" id="addTask" placeholder="Add Task" required>
                 <button type="button" (click)="onSubmit()" class="btn btn-success">Add</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 col-sm-12 divForm" *ngIf="edit">
+        <h1 class="text-center">Editing Task " {{editingTask.description}} "</h1>
+        <form>
+            <div class="input-group">
+                <input type="text" class="form-control" id="updateTask" placeholder="Add Task"
+                    value="{{editingTask.description}}">
+            </div>
+            <div class="pt-2 text-center">
+                <button type="button" (click)="update()" class="btn btn-sm btn-success pr-2">Save</button> &nbsp; |
+                &nbsp;
+                <button type="button" (click)="editTask()" class="btn btn-sm btn-danger">Cancel</button>
             </div>
         </form>
     </div>

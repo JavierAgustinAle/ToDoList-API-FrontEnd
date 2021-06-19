@@ -10,6 +10,8 @@ import { ITask } from '../../models/task.model';
 })
 export class TasksComponent implements OnInit {
   tasksAll: ITask[];
+  edit = false;
+  editingTask: ITask;
 
   constructor(private taskService: TaskService, private _snackBar: MatSnackBar) { }
 
@@ -24,7 +26,7 @@ export class TasksComponent implements OnInit {
   }
 
 
-  update(task) {
+  checkComplete(task) {
     const obj: ITask = {
       id: task.id,
       description: task.description,
@@ -65,5 +67,27 @@ export class TasksComponent implements OnInit {
     this._snackBar.open(message, 'X', {
       duration: 3000
     });
+  }
+
+  editTask(task?) {
+    this.edit = !this.edit;
+    this.edit ? this.editingTask = task : this.editingTask = null;
+  }
+
+  update() {
+    if ((document.getElementById('updateTask') as HTMLFormElement).value != '') {
+      const obj: ITask = {
+        id: this.editingTask.id,
+        description: (document.getElementById('updateTask') as HTMLFormElement).value,
+        completed: this.editingTask.completed,
+        folderID: this.editingTask.folderID
+      };
+      this.taskService.putTask(obj).subscribe(_ => {
+        this.openSnackBar('Task Updated');
+        this.loadTable();
+        (document.getElementById('updateTask') as HTMLFormElement).value = '';
+        this.editTask();
+      })
+    }
   }
 }
