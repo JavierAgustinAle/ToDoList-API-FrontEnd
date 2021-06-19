@@ -29,7 +29,7 @@
     <div class="col-md-6 col-sm-12 divForm" *ngIf="!edit">
         <form>
             <div class="input-group">
-                <input type="text" class="form-control" id="addTask" placeholder="Add Task" required>
+                <input type="text" class="form-control" id="addTask" placeholder="Add Task" required maxlength="45">
                 <button type="button" (click)="onSubmit()" class="btn btn-success">Add</button>
             </div>
         </form>
@@ -38,7 +38,7 @@
         <h1 class="text-center">Editing Task " {{editingTask.description}} "</h1>
         <form>
             <div class="input-group">
-                <input type="text" class="form-control" id="updateTask" placeholder="Add Task"
+                <input type="text" class="form-control" id="updateTask" placeholder="Add Task" maxlength="45"
                     value="{{editingTask.description}}">
             </div>
             <div class="pt-2 text-center">

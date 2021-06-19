@@ -34,7 +34,7 @@ export class FoldersComponent implements OnInit, OnDestroy {
   deleteFolder(folder): void {
     this.subs.add(
       this.folderService.deleteFolder(folder.id).subscribe(_ => {
-        this.openSnackBar('Folder Deleted');
+        this.openSnackBar('Folder and it´s tasks deleted.');
         this.loadTable();
       })
     )
