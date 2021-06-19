@@ -33,7 +33,7 @@ export class TaskService {
   }
 
   putTask(obj: ITask) {
-    return this.httpClient.put(this.tasksAll, obj);
+    return this.httpClient.post(this.tasksAll, obj);
   }
 
 
