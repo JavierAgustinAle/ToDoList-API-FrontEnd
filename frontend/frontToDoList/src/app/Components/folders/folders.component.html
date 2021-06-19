@@ -34,5 +34,9 @@
 </main>
 
 <div *ngIf="show">
+    <div class="p-2">
+        <button class="p-2 float-right btn btn-sm btn-primary" (click)="back()">Back to Folders</button>
+    </div>
+
     <app-tasks [folder]="folderSelected"></app-tasks>
 </div>
