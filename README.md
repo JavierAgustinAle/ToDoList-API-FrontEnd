@@ -15,7 +15,7 @@
  The database is MySQL ( 8.0.25 ) (Scripts are on db folder).
  
 ## FrontEnd
-This is made with Angular (v11.2.14).
+This is made with Angular (v11.2.14) and Typescript (v4.1.5).
 
   
   Dependecies |   Version
