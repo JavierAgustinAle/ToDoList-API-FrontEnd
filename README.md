@@ -1,5 +1,13 @@
 # Exercise created for Ensolvers by [Javier Ale](https://www.linkedin.com/in/javieragustinale/) 
 
+##  Run the project:
+ *  1.Clone this repo.
+ *  2.Into MySql run the scripts in the folder db.
+ *  3.Into folder excerciseEnsolvers/api run command   --> "npm install"
+ *  4.Into folder excerciseEnsolvers/frontend/frontToDoList    run command --> "npm install"
+ *  5.Open folder excerciseEnsolvers/api with your textEditor and run command "npm run dev".
+ *  6.Open folder excerciseEnsolvers/frontend/frontToDoList with your textEditor and run command "ng serve -o".
+
 ## API
  This Api was made using NODE js (v14.15.1) using Express(4.17.1).
  
