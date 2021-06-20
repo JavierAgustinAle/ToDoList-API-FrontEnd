@@ -29,11 +29,11 @@ export class TaskService {
     return this.httpClient.get(this.tasksSingle.replace('{id}', id.toString()));
   }
 
-  deleteTask(id: number) {
+  deleteTask(id: number): Observable<any> {
     return this.httpClient.delete(this.tasksSingle.replace('{id}', id.toString()));
   }
 
-  putTask(obj: ITask) {
+  putTask(obj: ITask): Observable<any> {
     return this.httpClient.post(this.tasksAll, obj);
   }
 

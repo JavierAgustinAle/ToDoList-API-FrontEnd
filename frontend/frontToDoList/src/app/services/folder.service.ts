@@ -28,11 +28,11 @@ export class FolderService {
         return this.httpClient.get(this.folderSingle.replace('{id}', id.toString()));
     }
 
-    deleteFolder(id: number) {
+    deleteFolder(id: number): Observable<any> {
         return this.httpClient.delete(this.folderSingle.replace('{id}', id.toString()));
     }
 
-    putFolder(obj: IFolder) {
+    putFolder(obj: IFolder): Observable<any> {
         return this.httpClient.post(this.foldersAll, obj);
     }
 }

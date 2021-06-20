@@ -28,7 +28,7 @@ export class FoldersComponent implements OnInit, OnDestroy {
       this.folderService.getAllFolders().subscribe((res: IFolder[]) => {
         this.foldersAll = res;
       })
-    )
+    );
   }
 
   deleteFolder(folder): void {
@@ -37,7 +37,7 @@ export class FoldersComponent implements OnInit, OnDestroy {
         this.openSnackBar('Folder and it´s tasks deleted.');
         this.loadTable();
       })
-    )
+    );
   }
 
   openSnackBar(message: string): void {
@@ -47,7 +47,7 @@ export class FoldersComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    if ((document.getElementById('addFolder') as HTMLFormElement).value != '') {
+    if ((document.getElementById('addFolder') as HTMLFormElement).value !== '') {
       const obj: IFolder = {
         id: 0,
         name: (document.getElementById('addFolder') as HTMLFormElement).value
@@ -58,7 +58,7 @@ export class FoldersComponent implements OnInit, OnDestroy {
           this.loadTable();
           (document.getElementById('addFolder') as HTMLFormElement).value = '';
         })
-      )
+      );
     }
   }
 
@@ -67,7 +67,7 @@ export class FoldersComponent implements OnInit, OnDestroy {
     this.folderSelected = folder;
   }
 
-  back() {
+  back(): void {
     this.show = !this.show;
     this.folderSelected = null;
   }

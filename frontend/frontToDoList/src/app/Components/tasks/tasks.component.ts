@@ -35,7 +35,7 @@ export class TasksComponent implements OnInit, OnDestroy {
         this.taskService.getAllTasks().subscribe((res: ITask[]) => {
           this.tasksAll = res;
         })
-      )
+      );
     }
   }
 
@@ -52,11 +52,11 @@ export class TasksComponent implements OnInit, OnDestroy {
         this.openSnackBar('Task Update');
         this.loadTable();
       })
-    )
+    );
   }
 
   onSubmit(): void {
-    if ((document.getElementById('addTask') as HTMLFormElement).value != '') {
+    if ((document.getElementById('addTask') as HTMLFormElement).value !== '') {
       const obj: ITask = {
         id: 0,
         description: (document.getElementById('addTask') as HTMLFormElement).value,
@@ -69,7 +69,7 @@ export class TasksComponent implements OnInit, OnDestroy {
           this.loadTable();
           (document.getElementById('addTask') as HTMLFormElement).value = '';
         })
-      )
+      );
     }
   }
 
@@ -79,7 +79,7 @@ export class TasksComponent implements OnInit, OnDestroy {
         this.openSnackBar('Task Deleted');
         this.loadTable();
       })
-    )
+    );
   }
 
 
@@ -95,7 +95,7 @@ export class TasksComponent implements OnInit, OnDestroy {
   }
 
   update(): void {
-    if ((document.getElementById('updateTask') as HTMLFormElement).value != '') {
+    if ((document.getElementById('updateTask') as HTMLFormElement).value !== '') {
       const obj: ITask = {
         id: this.editingTask.id,
         description: (document.getElementById('updateTask') as HTMLFormElement).value,
@@ -109,7 +109,7 @@ export class TasksComponent implements OnInit, OnDestroy {
           (document.getElementById('updateTask') as HTMLFormElement).value = '';
           this.editTask();
         })
-      )
+      );
     }
   }
 
