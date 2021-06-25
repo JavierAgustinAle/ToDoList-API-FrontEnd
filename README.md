@@ -1,5 +1,9 @@
-# Exercise created for Ensolvers by [Javier Ale](https://www.linkedin.com/in/javieragustinale/) 
+# Created  by [Javier Ale](https://www.linkedin.com/in/javieragustinale/) 
 
+# This project is a To Do List where you can create your tasks, edit them and mark each one as completed.
+# You can also create specific folders to add tasks with a common topic ex. Work or School. When you delete a folder, also all it's tasks will be delete.
+
+#### For the time being the the project can only be run in local environment, but that will change soon.
 ##  Run the project:
  *  1.Clone this repo.
  *  2.Into MySql run the scripts in the folder db.
@@ -18,19 +22,4 @@
 This is made with Angular (v11.2.14) and Typescript (v4.1.5).
 
   
-  Dependecies |   Version
----------------- | ----------------
-"@angular/animations"   |  "~11.2.6"
-"@angular/cdk" |   "^11.2.13"
-"@angular/common" |  "~11.2.6"
-"@angular/core"   |  "~11.2.6"
-"@angular/forms" |   "~11.2.6"
-"@angular/localize" |  "~11.2.6"
-"@angular/material"   |  "^11.2.13"
-"@angular/platform-browser" |  "~11.2.6"
-"@angular/platform-browser-dynamic" |  "~11.2.6"
-"@angular/router"   |   "~11.2.6"
-"@ng-bootstrap/ng-bootstrap" |   "^9.1.3"
-"rxjs" |   "~6.6.0"
-subsink |  "^1.0.2"
-bootstrap |   "^4.5.0"
+
